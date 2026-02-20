@@ -1,288 +1,268 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RESET | Performance Optimization</title>
-  <meta name="description" content="RESET is a structured performance optimization system that maps, recalibrates, and rebuilds how your body organizes force." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RESET | Performance Optimization System</title>
+<meta name="description" content="RESET is a structured performance optimization system that maps, recalibrates, and rebuilds how your body organizes force." />
 
-  <style>
-    :root{
-      --bg0:#070a12;
-      --bg1:#0b1020;
-      --panel:#0f1833;
-      --panel2:#101b2e;
-      --text:#eaf1ff;
-      --muted:#a9b6cc;
-      --line:rgba(255,255,255,.10);
-      --accent:#1f6bff;
-      --accent2:#0d4ed6;
-      --shadow:0 18px 45px rgba(0,0,0,.35);
-      --radius:18px;
-      --radius2:14px;
-      --max:980px;
-      --pad: clamp(18px, 3vw, 34px);
-      --h1: clamp(42px, 7vw, 72px);
-      --h2: clamp(26px, 4vw, 36px);
-      --h3: 18px;
-      --p: 16px;
-    }
+<style>
+:root{
+--bg0:#070a12;
+--bg1:#0b1020;
+--panel:#0f1833;
+--text:#eaf1ff;
+--muted:#a9b6cc;
+--line:rgba(255,255,255,.10);
+--accent:#1f6bff;
+--accent2:#0d4ed6;
+--shadow:0 18px 45px rgba(0,0,0,.35);
+--radius:18px;
+--max:980px;
+--pad: clamp(18px, 3vw, 34px);
+--h1: clamp(42px, 7vw, 64px);
+--h2: clamp(26px, 4vw, 36px);
+}
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--text);
-      background:
-        radial-gradient(900px 600px at 50% -10%, rgba(31,107,255,.25), transparent 55%),
-        radial-gradient(700px 500px at 10% 30%, rgba(50,120,255,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0), var(--bg1));
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+color:var(--text);
+background:
+radial-gradient(900px 600px at 50% -10%, rgba(31,107,255,.25), transparent 55%),
+linear-gradient(180deg, var(--bg0), var(--bg1));
+}
 
-    a{ color:inherit; text-decoration:none; }
-    .wrap{ max-width:var(--max); margin:0 auto; padding: var(--pad) var(--pad) 64px; }
+.wrap{max-width:var(--max); margin:0 auto; padding:var(--pad)}
 
-    .hero{
-      padding: 56px 0 30px;
-      text-align:center;
-    }
+.hero{text-align:center; padding:50px 0 30px}
 
-    .kicker{
-      display:inline-flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-bottom:18px;
-    }
-    .pill{
-      border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--muted);
-    }
+.pill{
+display:inline-block;
+padding:6px 10px;
+border-radius:999px;
+border:1px solid var(--line);
+background:rgba(255,255,255,.05);
+font-size:12px;
+letter-spacing:.08em;
+color:var(--muted);
+margin:4px;
+}
 
-    h1{
-      margin: 0 0 10px;
-      font-size: var(--h1);
-      line-height: 1.02;
-      letter-spacing: .02em;
-      text-transform:uppercase;
-      text-shadow: 0 10px 40px rgba(0,0,0,.55);
-    }
-    .sub{
-      margin: 0 auto 22px;
-      max-width: 760px;
-      font-size: 18px;
-      line-height: 1.55;
-      color: var(--muted);
-    }
+h1{
+font-size:var(--h1);
+margin:10px 0;
+letter-spacing:.05em;
+}
 
-    .ctaRow{
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      align-items:center;
-      flex-wrap:wrap;
-      margin: 22px 0 18px;
-    }
+.sub{
+max-width:760px;
+margin:0 auto 20px;
+color:var(--muted);
+font-size:18px;
+line-height:1.5;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 14px 18px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(180deg, var(--accent), var(--accent2));
-      color: #fff;
-      font-weight: 800;
-      letter-spacing:.01em;
-      box-shadow: 0 14px 30px rgba(31,107,255,.25);
-      min-width: 240px;
-    }
-    .btn:hover{ filter:brightness(1.05); }
+.ctaRow{
+display:flex;
+gap:14px;
+justify-content:center;
+flex-wrap:wrap;
+margin:20px 0;
+}
 
-    .link{
-      color: var(--muted);
-      font-weight:600;
-      text-decoration:underline;
-      text-underline-offset: 4px;
-    }
+.btn{
+padding:14px 22px;
+border-radius:14px;
+background:linear-gradient(180deg, var(--accent), var(--accent2));
+color:#fff;
+font-weight:800;
+text-decoration:none;
+box-shadow:0 12px 30px rgba(31,107,255,.25);
+}
 
-    .note{
-      margin: 10px auto 0;
-      color: var(--muted);
-      font-size: 13px;
-      max-width: 680px;
-    }
+.link{
+color:var(--muted);
+text-decoration:underline;
+font-weight:600;
+}
 
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:18px;
+box-shadow:var(--shadow);
+margin:14px 0;
+}
 
-    .videoCard{
-      margin: 18px auto 0;
-      max-width: 860px;
-      padding: 14px;
-    }
-    .videoFrame{
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.25);
-    }
-    .videoFrame iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-    }
+.sectionTitle{
+text-align:center;
+font-size:var(--h2);
+margin:40px 0 14px;
+}
 
-    .sectionTitle{
-      margin: 46px 0 14px;
-      text-align:center;
-      font-size: var(--h2);
-      letter-spacing:.01em;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 12px;
-    }
-    @media (max-width: 860px){
-      .grid{ grid-template-columns: 1fr; }
-      .hero{ padding-top: 42px; }
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+}
 
-    .phase{
-      padding: 18px 16px;
-      text-align:left;
-    }
-    .phase h3{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing:.01em;
-    }
-    .phase ul{
-      margin: 0;
-      padding-left: 16px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 14px;
-    }
+@media(max-width:860px){
+.grid{grid-template-columns:1fr}
+}
 
-    .divider{
-      height:1px;
-      background: var(--line);
-      margin: 44px 0;
-    }
+.videoFrame{
+width:100%;
+aspect-ratio:16/9;
+border-radius:14px;
+overflow:hidden;
+}
 
-    .footer{
-      text-align:center;
-      color: var(--muted);
-      font-size: 12px;
-      padding-top: 14px;
-    }
-  </style>
+.videoFrame iframe{
+width:100%;
+height:100%;
+border:0;
+}
+
+ul{padding-left:18px; color:var(--muted); line-height:1.6}
+
+.footer{
+text-align:center;
+color:var(--muted);
+font-size:12px;
+margin-top:40px;
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <div class="kicker">
-        <span class="pill">RESET</span>
-        <span class="pill">Performance System</span>
-        <span class="pill">Testing • Mapping • Installation</span>
-      </div>
+<div class="wrap">
 
-      <h1>RESET</h1>
+<section class="hero">
+<div>
+<span class="pill">RESET</span>
+<span class="pill">Performance System</span>
+<span class="pill">Testing • Mapping • Installation</span>
+</div>
 
-      <p class="sub">
-        A structured performance optimization system.<br>
-        Not a tune-up. Not a random session.<br>
-        A system that maps, recalibrates, and rebuilds how your body organizes force.
-      </p>
+<h1>RESET</h1>
 
-      <div class="ctaRow">
-        <a class="btn" href="https://app.acuityscheduling.com/schedule.php?owner=18949407&amp;appointmentType=59037171&amp;ref=booking_button" target="_blank" rel="noopener">
-          Start with Session 1 — $75
-        </a>
-        <a class="link" href="#packages">See package options</a>
-      </div>
+<p class="sub">
+A structured performance optimization system.<br>
+Not a tune-up. Not a random session.<br>
+A system that maps, recalibrates, and rebuilds how your body organizes force.
+</p>
 
-      <p class="note">
-        Intended path is a 4–8 session block so changes get installed — not just felt once.
-      </p>
+<div class="ctaRow">
+<a class="btn" href="https://app.acuityscheduling.com/schedule.php?owner=18949407&amp;appointmentType=59037171&amp;ref=booking_button" target="_blank" rel="noopener">
+Start with Session 1 — $75
+</a>
+<a class="link" href="#packages">See package options</a>
+</div>
 
-      <div class="card videoCard">
-        <div class="videoFrame">
-          <iframe
-            src="https://www.youtube.com/embed/S2UPeknMVYM"
-            title="RESET overview video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<div class="videoFrame">
+<iframe
+src="https://www.youtube.com/embed/S2UPeknMVYM"
+title="RESET overview video"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+</div>
+</section>
 
-    <h2 class="sectionTitle">How RESET Works</h2>
+<h2 class="sectionTitle">How RESET Works</h2>
 
-    <section class="grid" id="packages">
-      <div class="card phase">
-        <h3>Phase 1 — Triage & Mapping</h3>
-        <ul>
-          <li>70+ muscle firing order assessment</li>
-          <li>200+ joint action mapping</li>
-          <li>Left vs right force testing</li>
-          <li>Before vs after output data</li>
-        </ul>
-      </div>
+<section class="grid" id="packages">
 
-      <div class="card phase">
-        <h3>Phase 2 — Sensory Mapping</h3>
-        <ul>
-          <li>30+ sensory pairings tested</li>
-          <li>Happy-brain anchor identification</li>
-          <li>Output retesting under load</li>
-        </ul>
-      </div>
+<div class="card">
+<h3>Phase 1 — Triage & Mapping</h3>
+<ul>
+<li>70+ muscle firing order assessment</li>
+<li>200+ joint action mapping</li>
+<li>Left vs right force testing</li>
+<li>Before vs after output data</li>
+<li>Identify compensation patterns</li>
+</ul>
+</div>
 
-      <div class="card phase">
-        <h3>Phase 3 — Performance Rebuild</h3>
-        <ul>
-          <li>Customized corrective workouts</li>
-          <li>Sensory pairing embedded into lifts</li>
-          <li>Motor pattern recalibration</li>
-          <li>Progression based on your individual map</li>
-        </ul>
-      </div>
-    </section>
+<div class="card">
+<h3>Phase 2 — Sensory Mapping</h3>
+<ul>
+<li>30+ sensory pairings tested</li>
+<li>Happy-brain anchor identification</li>
+<li>Output retesting under load</li>
+<li>Identify strongest stabilizing input</li>
+</ul>
+</div>
 
-    <div class="divider"></div>
+<div class="card">
+<h3>Phase 3 — Performance Rebuild</h3>
+<ul>
+<li>Customized corrective workouts</li>
+<li>Sensory pairing embedded into exercises</li>
+<li>Motor pattern recalibration</li>
+<li>Joint sequencing restoration</li>
+<li>Progression based on your individual map</li>
+</ul>
+</div>
 
-    <div class="footer">
-      © <span id="y"></span> RESET
-    </div>
-  </main>
+</section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+<h2 class="sectionTitle">Package Options</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Session 1 — $75</h3>
+<ul>
+<li>Full triage and mapping</li>
+<li>Immediate installation work</li>
+<li>Before/after output testing</li>
+<li>Next-step prescription</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>4 Session Install Block</h3>
+<ul>
+<li>Lock in pattern changes</li>
+<li>Retesting each session</li>
+<li>Anchor refinement</li>
+<li>Progression inside lifts</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>8 Session Performance Rebuild</h3>
+<ul>
+<li>Higher complexity installs</li>
+<li>Speed and fatigue integration</li>
+<li>Long-term progression</li>
+<li>Customized training structure</li>
+</ul>
+</div>
+
+</div>
+
+<div class="ctaRow" style="margin-top:30px;">
+<a class="btn" href="https://app.acuityscheduling.com/schedule.php?owner=18949407&amp;appointmentType=59037171&amp;ref=booking_button" target="_blank" rel="noopener">
+Book Session 1 — $75
+</a>
+</div>
+
+<div class="footer">
+© <span id="year"></span> RESET
+</div>
+
+</div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
